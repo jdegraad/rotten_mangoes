@@ -1,0 +1,14 @@
+<h1>You are here</h1>
+<h1>Users</h1>
+<% @users.each do |user| %>
+  
+  <h4>
+    <%= user.firstname %> <%= user.lastname %> email: <%= user.email %>
+    <% if user.admin %>
+      (admin)
+    <% end %>
+    </h4>
+
+  <h2> <%= link_to "make admin", make_admin_admin_user_path(user), confirm: "You sure?" %></h2>
+
+<% end %>
