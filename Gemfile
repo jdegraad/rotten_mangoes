@@ -40,8 +40,10 @@ gem 'puma'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem "carrierwave"
 group :production do
   gem 'pg'
 end
+
+gem "rmagick"
 
