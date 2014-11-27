@@ -12,6 +12,7 @@
   <td> User ID </td>
   <td> </td>
   <td> Admin </td>
+  <td> Switch to User </td>
  </tr>
 <% @users.each do |user| %>
   <tr>
@@ -30,7 +31,11 @@
    <td> <%= link_to "Delete", admin_user_path(user), method: :delete, confirm: "delete?" %></td>
     <% end %>
    </td>
+   <td><%= link_to 'Masquerade', new_user_masquerade_path(user) %></td>
   </tr>
 
 <% end %>
 </table>
+
+
+

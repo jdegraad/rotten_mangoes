@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
+
+
   resources :movies do
     resources :reviews, only: [:new, :create]
   end
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] 
   resources :sessions, only: [:new, :create, :destroy]
   namespace :admin do
     resources :users do
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
         get 'make_admin'
       end
     end
+    resource :masquerades, only: [:new]
   end
   root to: 'movies#index'
 
