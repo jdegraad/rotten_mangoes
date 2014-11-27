@@ -1,14 +1,35 @@
-<h1>You are here</h1>
-<h1>Users</h1>
-<% @users.each do |user| %>
-  
-  <h4>
-    <%= user.firstname %> <%= user.lastname %> email: <%= user.email %>
-    <% if user.admin %>
-      (admin)
-    <% end %>
-    </h4>
+<h1>Admin Management Panel</h1>
+<h3>Add a new user: </h3>
+<%=link_to "Create a new user", new_admin_user_path %>
 
-  <h2> <%= link_to "make admin", make_admin_admin_user_path(user), confirm: "You sure?" %></h2>
+<h1>Users</h1>
+<%= paginate @users %>
+ <table>
+ <tr>
+  <td> Firstname </td>
+  <td> Lastname </td>
+  <td> Email </td>
+  <td> User ID </td>
+  <td> </td>
+  <td> Admin </td>
+ </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.firstname %></td>
+    <td><%= user.lastname %></td>
+    <td><%= user.email %></td>
+    <td><%= user.id %> </td>
+
+ 
+
+
+   <td><%= link_to "Edit", edit_admin_user_path(user) %></td>
+   <td> <% if user.admin %>
+      (admin)
+   </td>
+    <% end %>
+   </td>
+  </tr>
 
 <% end %>
+</table>

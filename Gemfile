@@ -46,4 +46,5 @@ group :production do
 end
 
 gem "rmagick"
+gem "kaminari"
 

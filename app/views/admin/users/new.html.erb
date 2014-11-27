@@ -1,0 +1,4 @@
+<h1>New User</h1>
+<%= form_for [:admin,@user] do |f| %>
+  <%= render partial: "users/form_new_user", locals: { f: f } %>
+<% end %>
