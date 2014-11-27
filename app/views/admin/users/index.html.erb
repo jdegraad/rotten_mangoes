@@ -27,6 +27,7 @@
    <td> <% if user.admin %>
       (admin)
    </td>
+   <td> <%= link_to "Delete", admin_user_path(user), method: :delete, confirm: "delete?" %></td>
     <% end %>
    </td>
   </tr>
