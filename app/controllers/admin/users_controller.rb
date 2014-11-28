@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_filter :is_admin?
 
   def index
-    @users = User.all.page(params[:page]).per(10)
+    @users = User.all.page(params[:page]).per(5)
   end
 
   def make_admin
@@ -14,7 +14,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(params[:id].to_i)
   end
 
   def create
@@ -46,6 +46,11 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     redirect_to admin_users_path
+  end
+
+  def change_user
+    session[:user_id] = params[:id]
+    redircect_to movies_path
   end
 
    protected

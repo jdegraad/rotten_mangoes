@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+get '/adminchange_users/:id', to: 'admin/users#change_user'
 
   resources :movies do
     resources :reviews, only: [:new, :create]
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
         get 'make_admin'
       end
     end
-    resource :masquerades, only: [:new]
+  
   end
   root to: 'movies#index'
 
